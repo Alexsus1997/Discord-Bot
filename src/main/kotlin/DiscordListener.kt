@@ -46,19 +46,19 @@ class DiscordListener(val bot: Bot) : ListenerAdapter() {
                 val spacesRemoved = query.replace(" ", "+")
                 event.channel.sendMessage("You search result: " + event.message.contentRaw.takeLast(event.message.contentRaw.length - 2)).queue()
 
-         /*       Jsoup.connect("https://www.google.com/search?q=this+is+a+test").get().run {
+                Jsoup.connect("https://www.google.com/search?q=" + event.message.contentRaw.takeLast(event.message.contentRaw.length - 2)).get().run {
                     {
                         select("div.rc").forEachIndexed { index, element ->
                             val titleAnchor = element.select("h3 a")
                             val title = titleAnchor.text()
                             val url = titleAnchor.attr("href")
-                            //3. Dumping Search Index, Title and URL on the stdout.
-                            println("inside")
-                            println("$index. $title ($url)")
+                            // Dumping Search Index, Title and URL on the stdout.
+                            event.channel.sendMessage("inside").queue()
+                            event.channel.sendMessage("$index. $title ($url)").queue()
 
                         }
                     }
-                }*/
+                }
 
                 event.channel.sendMessage("https://www.google.com/search?q=" + spacesRemoved).queue()
             } catch(e: IllegalArgumentException){
