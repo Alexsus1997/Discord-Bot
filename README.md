@@ -1,2 +1,2 @@
-# Discord-Bot
-Hackathon Discord AI Bot 
+# hackbot
+Discord Bot for J.B. Hunt Hackathon
